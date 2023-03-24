@@ -8,6 +8,7 @@ using System.Runtime.Loader;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using UMBIT.Nucleo.Conventions;
 
 namespace UMBIT.Nucleo.Configurate
 {
@@ -26,7 +27,10 @@ namespace UMBIT.Nucleo.Configurate
             foreach (var module in modulesInfo)
             {
                 // Registra controller dos plugins
-                mvcBuilder.AddApplicationPart(module.Assembly).AddMvcOptions(m => m.EnableEndpointRouting =true);
+                mvcBuilder.AddApplicationPart(module.Assembly).AddMvcOptions(m =>
+                {
+                    m.Conventions.Add(new ControllerConventions());
+                });
 
                 // Registra as depedencias dos plugins
                 var moduleInitializerType = module.Assembly.GetTypes().Where(x => typeof(IModuleInitializer).IsAssignableFrom(x)).FirstOrDefault();
