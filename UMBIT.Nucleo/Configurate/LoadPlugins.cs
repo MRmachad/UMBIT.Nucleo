@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using UMBIT.Nucleo.Conventions;
 
 namespace UMBIT.Nucleo.Configurate
@@ -30,7 +30,14 @@ namespace UMBIT.Nucleo.Configurate
                 mvcBuilder.AddApplicationPart(module.Assembly).AddMvcOptions(m =>
                 {
                     m.Conventions.Add(new ControllerConventions());
-                });
+                    m.Conventions.Add(new ActionConvetions());
+                    m.EnableEndpointRouting = false;
+                    
+                }).AddViewOptions(options =>
+                {
+                    options.ViewEngines.Clear();
+                    options.ViewEngines.Add(new UMBITViewEngine());
+                }).AddRazorRuntimeCompilation();
 
                 // Registra as depedencias dos plugins
                 var moduleInitializerType = module.Assembly.GetTypes().Where(x => typeof(IModuleInitializer).IsAssignableFrom(x)).FirstOrDefault();
@@ -39,6 +46,9 @@ namespace UMBIT.Nucleo.Configurate
                     var moduleInitializer = (IModuleInitializer)Activator.CreateInstance(moduleInitializerType);
                     moduleInitializer.Init(services);
                 }
+
+                services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
+                { options.FileProviders.Add(new EmbeddedFileProvider(module.Assembly, module.Assembly.GetName().Name)); });
             }
         }
 
