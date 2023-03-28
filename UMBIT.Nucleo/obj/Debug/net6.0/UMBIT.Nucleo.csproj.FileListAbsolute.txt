@@ -393,3 +393,4 @@ D:\Dev\ByMySelf\UMBIT.Nucleo\UMBIT.Nucleo\bin\Debug\net6.0\tr\Microsoft.CodeAnal
 D:\Dev\ByMySelf\UMBIT.Nucleo\UMBIT.Nucleo\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Dev\ByMySelf\UMBIT.Nucleo\UMBIT.Nucleo\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 D:\Dev\ByMySelf\UMBIT.Nucleo\UMBIT.Nucleo\obj\Debug\net6.0\UMBIT.Nucleo.MvcApplicationPartsAssemblyInfo.cs
+D:\Dev\ByMySelf\UMBIT.Nucleo\UMBIT.Nucleo\bin\Debug\net6.0\UMBIT.Plugin.dll

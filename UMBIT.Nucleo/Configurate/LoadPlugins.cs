@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -32,11 +33,11 @@ namespace UMBIT.Nucleo.Configurate
                     m.Conventions.Add(new ControllerConventions());
                     m.Conventions.Add(new ActionConvetions());
                     m.EnableEndpointRouting = false;
-                    
+
                 }).AddViewOptions(options =>
                 {
-                    options.ViewEngines.Clear();
-                    options.ViewEngines.Add(new UMBITViewEngine());
+                    //options.ViewEngines.Clear();
+                    //options.ViewEngines.Add(new UMBITViewEngine());
                 }).AddRazorRuntimeCompilation();
 
                 // Registra as depedencias dos plugins
@@ -48,8 +49,15 @@ namespace UMBIT.Nucleo.Configurate
                 }
 
                 services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
-                { options.FileProviders.Add(new EmbeddedFileProvider(module.Assembly, module.Assembly.GetName().Name)); });
+                {
+                    options.FileProviders.Add(new UMBITEmbeddedFileProvider(module.Assembly, module.Assembly.GetName().Name));
+                });
             }
+
+            services.Configure(delegate (RazorViewEngineOptions options)
+            {
+                options.ViewLocationExpanders.Add(new UMBITViewLocationExpander());
+            });
         }
 
         private static IList<ModuleInfo> CarregaPlugins(IWebHostEnvironment _hostingEnvironment, IList<ModuleInfo> modules)
@@ -83,8 +91,6 @@ namespace UMBIT.Nucleo.Configurate
 
             return modules;
         }
-
-
 
         private static IList<ModuleInfo> GetModules()
         {

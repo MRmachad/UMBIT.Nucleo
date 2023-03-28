@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rqQkQcK7m4LXfx1TjOH4fF/XDDn+JfVv8Gf71cauA+Y=",
+  "Hash": "hovRmr6gxHL6wctGm9gifpM9udOPwHSXxw/0Dz/mpJI=",
   "Source": "UMBIT.Nucleo",
   "BasePath": "_content/UMBIT.Nucleo",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\Dev\\ByMySelf\\UMBIT.Nucleo\\UMBIT.Nucleo\\wwwroot\\lib\\baixados.jpg",
+      "SourceId": "UMBIT.Nucleo",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dev\\ByMySelf\\UMBIT.Nucleo\\UMBIT.Nucleo\\wwwroot\\",
+      "BasePath": "_content/UMBIT.Nucleo",
+      "RelativePath": "lib/baixados.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\baixados.jpg"
     },
     {
       "Identity": "D:\\Dev\\ByMySelf\\UMBIT.Nucleo\\UMBIT.Nucleo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

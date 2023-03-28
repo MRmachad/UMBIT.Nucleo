@@ -9,4 +9,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.15" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="UMBIT.Plugin">
+      <HintPath>..\..\..\..\Teste\UMBIT.Plugin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
