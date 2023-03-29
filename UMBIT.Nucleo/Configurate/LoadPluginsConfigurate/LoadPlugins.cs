@@ -63,16 +63,8 @@ namespace UMBIT.Nucleo.Configurate.LoadPluginsConfigurate
         public static void UsePluginsRoot(this IApplicationBuilder applicationBuilder)
         {
 
-            //applicationBuilder.UseStaticFiles();
+            applicationBuilder.UseStaticFiles();
 
-            applicationBuilder.UseWhen((context) =>
-            {
-                var path = context.Request.Path.Value;
-                return !(!path.Contains("UMBIT.Nucleo") || path.Contains("Content."));
-            }, app =>
-            {
-                app.UseStaticFiles();
-            });
 
             applicationBuilder.UseWhen(context =>
             {
