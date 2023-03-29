@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
@@ -95,6 +97,23 @@ namespace UMBIT.Nucleo.Configurate
         private static IList<ModuleInfo> GetModules()
         {
             return new List<ModuleInfo>();
+        }
+
+        public static void UsePluginsRoot(this IApplicationBuilder applicationBuilder, IWebHostEnvironment webHostEnvironment)
+        {
+            var plugins = CarregaPlugins(webHostEnvironment, GetModules());
+
+            var listFileProvider = new List<IFileProvider>();
+
+            foreach (var plugin in plugins)
+            {
+                applicationBuilder.UseStaticFiles(new StaticFileOptions()
+                {
+                    FileProvider = new UMBITEmbeddedFileProvider(plugin.Assembly, plugin.Assembly.GetName().Name),
+                    RequestPath = new PathString("/" + plugin.Assembly.GetName().Name),
+                });
+            }
+
         }
     }
 

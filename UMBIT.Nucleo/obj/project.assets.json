@@ -1150,19 +1150,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LeonardoSilva\\.nuget\\packages\\": {}
+    "C:\\Users\\macha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\ByMySelf\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
+      "projectUniqueName": "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
       "projectName": "UMBIT.Nucleo",
-      "projectPath": "D:\\Dev\\ByMySelf\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
-      "packagesPath": "C:\\Users\\LeonardoSilva\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev\\ByMySelf\\UMBIT.Nucleo\\UMBIT.Nucleo\\obj\\",
+      "projectPath": "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
+      "packagesPath": "C:\\Users\\macha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LeonardoSilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\macha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1216,7 +1216,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
