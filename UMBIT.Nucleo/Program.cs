@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.FileProviders.Embedded;
 using Microsoft.Extensions.Hosting;
 using UMBIT.Nucleo.Configurate;
-using UMBIT.Plugin.Controllers;
+using UMBIT.Nucleo.Controllers;
 
 internal class Program
 {
@@ -40,18 +37,15 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseStaticFiles(new StaticFileOptions()
-        {
-            FileProvider = new EmbeddedFileProvider(typeof(HomeController).Assembly, typeof(HomeController).Assembly.GetName().Name),
-            RequestPath= new PathString("/teste")
-        }) ;
+
+        app.UseStaticFiles();
+        app.UsePluginsRoot(app.Environment);
         
         app.UseRouting();
 
         app.UseAuthentication();
         app.UseAuthorization();
 
-        app.UseStaticFiles();
 
 
 
