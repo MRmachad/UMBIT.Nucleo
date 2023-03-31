@@ -10,10 +10,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-using UMBIT.Nucleo.Configurate.FileProvider;
-using UMBIT.Nucleo.Configurate.Initializable;
-using UMBIT.Nucleo.Configurate.LocationExpander;
-using UMBIT.Nucleo.Conventions;
+using UMBIT.MVC.Core.Configurate.FileProvider;
+using UMBIT.MVC.Core.Configurate.Initializable;
+using UMBIT.MVC.Core.Configurate.LocationExpander;
+using UMBIT.MVC.Core.Conventions;
 
 namespace UMBIT.Nucleo.Configurate.LoadPluginsConfigurate
 {
@@ -45,7 +45,7 @@ namespace UMBIT.Nucleo.Configurate.LoadPluginsConfigurate
                 if (moduleInitializerType != null && moduleInitializerType != typeof(IModuleInitializer))
                 {
                     var moduleInitializer = (IModuleInitializer)Activator.CreateInstance(moduleInitializerType);
-                    moduleInitializer.Init(services,webHostEnvironment);
+                    moduleInitializer.Init(services);
                 }
 
                 services.Configure<MvcRazorRuntimeCompilationOptions>(options =>

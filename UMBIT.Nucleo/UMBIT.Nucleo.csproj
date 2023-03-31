@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="UMBIT.Plugin">
-      <HintPath>..\..\..\..\Teste\UMBIT.Plugin.dll</HintPath>
+    <Reference Include="UMBIT.MVC.Core">
+      <HintPath>Binarios\UMBIT.MVC.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 
