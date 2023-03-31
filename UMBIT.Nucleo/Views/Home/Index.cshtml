@@ -3,6 +3,8 @@
 }
 
 <div class="text-center">
+    <img src="~/lib/baixados.jpg" />
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Learn about <a href="@Url.Action("Index","Home",new {area="UMBIT-Plug" })">plugin</a>.</p>
+    @Html.ActionLink("LinkName", "Index", "Home", new { area = "UMBIT-Plug"}, new { @class = "btn btn-cool" })
 </div>
