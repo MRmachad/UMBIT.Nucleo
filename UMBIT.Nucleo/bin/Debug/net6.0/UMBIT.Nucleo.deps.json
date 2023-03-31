@@ -37,7 +37,7 @@
           "Microsoft.AspNetCore.Authentication.Negotiate": "6.0.14",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.15",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.13",
-          "UMBIT.Plugin": "1.0.0.0",
+          "UMBIT.MVC.Core": "1.0.0.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "6.0.0.0",
@@ -51,6 +51,7 @@
           "Microsoft.AspNetCore.Components.Forms": "6.0.0.0",
           "Microsoft.AspNetCore.Components.Server": "6.0.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.0.0",
+          "Microsoft.AspNetCore.Connections.Abstractions.Reference": "6.0.0.0",
           "Microsoft.AspNetCore.CookiePolicy": "6.0.0.0",
           "Microsoft.AspNetCore.Cors": "6.0.0.0",
           "Microsoft.AspNetCore.Cryptography.Internal": "6.0.0.0",
@@ -135,6 +136,7 @@
           "Microsoft.Extensions.DependencyInjection.Reference": "6.0.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "6.0.0.0",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "6.0.0.0",
+          "Microsoft.Extensions.Features.Reference": "6.0.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0.0",
           "Microsoft.Extensions.FileProviders.Composite": "6.0.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.0.0",
@@ -400,9 +402,6 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.1423.7403"
           }
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.15": {
@@ -1311,9 +1310,6 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.1423.7403"
           }
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.Extensions.Features.dll": {}
         }
       },
       "Microsoft.NET.StringTools/17.3.2": {
@@ -2613,15 +2609,15 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "UMBIT.Plugin/1.0.0.0": {
+      "UMBIT.MVC.Core/1.0.0.0": {
         "runtime": {
-          "UMBIT.Plugin.dll": {
+          "UMBIT.MVC.Core.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         },
         "compile": {
-          "UMBIT.Plugin.dll": {}
+          "UMBIT.MVC.Core.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/6.0.0.0": {
@@ -2699,6 +2695,12 @@
       "Microsoft.AspNetCore.Components.Web/6.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Components.Web.dll": {}
+        },
+        "compileOnly": true
+      },
+      "Microsoft.AspNetCore.Connections.Abstractions.Reference/6.0.0.0": {
+        "compile": {
+          "Microsoft.AspNetCore.Connections.Abstractions.dll": {}
         },
         "compileOnly": true
       },
@@ -3203,6 +3205,12 @@
       "Microsoft.Extensions.Diagnostics.HealthChecks/6.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Diagnostics.HealthChecks.dll": {}
+        },
+        "compileOnly": true
+      },
+      "Microsoft.Extensions.Features.Reference/6.0.0.0": {
+        "compile": {
+          "Microsoft.Extensions.Features.dll": {}
         },
         "compileOnly": true
       },
@@ -5433,7 +5441,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "UMBIT.Plugin/1.0.0.0": {
+    "UMBIT.MVC.Core/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -5499,6 +5507,11 @@
       "sha512": ""
     },
     "Microsoft.AspNetCore.Components.Web/6.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.AspNetCore.Connections.Abstractions.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -5919,6 +5932,11 @@
       "sha512": ""
     },
     "Microsoft.Extensions.Diagnostics.HealthChecks/6.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.Features.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
