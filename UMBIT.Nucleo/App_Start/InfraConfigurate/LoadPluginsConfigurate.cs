@@ -98,14 +98,13 @@ namespace UMBIT.Nucleo.Core.Configurate.InfraConfigurate
 
                 foreach (var pluginInfo in PluginsInfo.Plugins)
                 {
-                    if (args.Name.Equals(pluginInfo.ProjetoDominio))
+                    if (args.Name.Contains(pluginInfo.ProjetoDominio))
                         return pluginInfo.LoadAssembly(pluginInfo.ProjetoDominioPath);
 
-
-                    if (args.Name.Equals(pluginInfo.ProjetoInfraData))
+                    if (args.Name.Contains(pluginInfo.ProjetoInfraData))
                         return pluginInfo.LoadAssembly(pluginInfo.ProjetoInfraDataPath);
 
-                    if (args.Name.Equals(pluginInfo.ProjetoUIWeb))
+                    if (args.Name.Contains(pluginInfo.ProjetoUIWeb))
                         return pluginInfo.LoadAssembly(pluginInfo.ProjetoUIWebPath);
 
 
