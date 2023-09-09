@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj": {}
+    "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj": {
+    "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
+        "projectUniqueName": "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
         "projectName": "UMBIT.Nucleo",
-        "projectPath": "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
+        "projectPath": "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
         "packagesPath": "C:\\Users\\macha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\macha\\OneDrive\\Documentos\\Dev\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo\\obj\\",
+        "outputPath": "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\macha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,15 +42,29 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.Negotiate": {
               "target": "Package",
-              "version": "[6.0.14, )"
+              "version": "[6.0.15, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[6.0.15, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.13, )"
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.17.0, )"
             }
           },
           "imports": [
