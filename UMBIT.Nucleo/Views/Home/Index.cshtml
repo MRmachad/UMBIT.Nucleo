@@ -1,67 +1,7 @@
-﻿@using System.Reflection
-@using UMBIT.Infraestrutura.Core.Entidade
-@using UMBIT.MVC.Core.Configurate.LoadPluginsConfigurate.Initializable.Module
-
-@inject PluginsInfo pluginsInfo
-
-@{
-    ViewData["Title"] = "Home Page";
-
-    var request = Context.Request;
-
+﻿@{
+    ViewData["Title"] = "Home";
 }
 
-
-@{
-   void GerarMenuDeModulos(Type tipoModulo, string area)
-{
-        string controller = ViewContext.RouteData.Values["Controller"].ToString();
-        string action = ViewContext.RouteData.Values["Action"].ToString();
-
-         List<ModuloInfo> listModulo = new List<ModuloInfo>();
-        foreach (ModuloInfo item in (from f in tipoModulo.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Static | BindingFlags.Public)
-                                        select f.GetValue(null)).Cast<ModuloInfo>())
-            {
-            listModulo.Add(item);                
-            }
-
-        foreach (var modulo in listModulo)
-        {
-            var recursos = modulo.RecursosDoModulo;
-
-            if (recursos.Any())
-            {
-                <h4 class="m-t-20">@modulo.Descricao</h4>
-                <div class="row">
-                    @foreach (var recurso in recursos)
-                    {
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 m-t-10">
-                            <a href="@($" {request.Scheme}://{request.Host}/{area}/{recurso.Controller}/{recurso.Action}" )" style="text-decoration: none;">
-                                <div class="widget widget-stats bg-dark" style="height: 100%;">
-                                    <div class="stats-icon stats-icon-lg">
-                                        <i class="@modulo.Icone fa-fw"></i>
-                                    </div>
-                                    <div class="stats-content">
-                                        <div class="stats-title">@modulo.Descricao</div>
-                                        <hr />
-                                        <div class="stats-number" style="font-size: 14px;">@recurso.Descricao</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    }
-                </div>
-            }
-        }
-    }
-}
-@{
-    if (pluginsInfo?.Plugins != null)
-        foreach (var plugin in pluginsInfo.Plugins)
-        {
-            foreach (var fonteDeModulos in ModuloInfo.ObtenhaFonteDeModulos(plugin.ProjetoUIWebPath))
-            {
-                GerarMenuDeModulos(fonteDeModulos, plugin.Area);
-            }
-        }
-}
+<div class="text-center">
+    <h1 class="display-4">Bem Vindo! Por favor Faça Login.</h1>
+</div>
