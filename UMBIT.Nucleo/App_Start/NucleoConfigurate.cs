@@ -43,7 +43,10 @@ namespace UMBIT.Nucleo.Core.Configurate
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
+
+            app.UseMigrate();
+
 
             app.UseEndpoints(delegate (IEndpointRouteBuilder endpoints)
             {
@@ -58,8 +61,6 @@ namespace UMBIT.Nucleo.Core.Configurate
             });
 
            
-            app.UseMigrate();
-
         }
         
     }
