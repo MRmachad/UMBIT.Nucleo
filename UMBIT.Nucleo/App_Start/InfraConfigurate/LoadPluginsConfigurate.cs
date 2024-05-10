@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UMBIT.Infraestrutura.Core.Entidade;
+using UMBIT.Infraestrutura.Core.Utilitarios;
 using UMBIT.MVC.Core.Configurate.FileProvider;
 using UMBIT.MVC.Core.Configurate.LoadPluginsConfigurate.Initializable;
 using UMBIT.MVC.Core.Configurate.LoadPluginsConfigurate.Initializable.Module;
@@ -17,7 +18,7 @@ using UMBIT.MVC.Core.Conventions;
 
 namespace UMBIT.Nucleo.Core.Configurate.InfraConfigurate
 {
-    public static class LoadPluginsConfigurate
+	public static class LoadPluginsConfigurate
     {
 
 
@@ -29,9 +30,9 @@ namespace UMBIT.Nucleo.Core.Configurate.InfraConfigurate
             var mvcBuilder = services.AddMvc();
 
 
-            foreach (var plugin in PluginsInfo.Plugins)
+            foreach (var plugin in PluginsInfo)
             {
-                var MVC = plugin.LoadAssembly(plugin.ProjetoUIWebPath);
+                var MVC = AssemblyUtils.LoadAssembly(plugin.ProjetoUIWebPath);
 
                 object value = mvcBuilder.AddApplicationPart(MVC).AddMvcOptions(m =>
                 {
@@ -65,11 +66,11 @@ namespace UMBIT.Nucleo.Core.Configurate.InfraConfigurate
         {
             applicationBuilder.UseStaticFiles();
 
-            var pluginsInfo = serviceProvider.GetRequiredService<PluginsInfo>();
+            var pluginsInfo = serviceProvider.GetRequiredService<List<Plugin>>();
 
-            foreach (var plugin in pluginsInfo.Plugins)
+            foreach (var plugin in pluginsInfo)
             {
-                var MVC = plugin.LoadAssembly(plugin.ProjetoUIWebPath);
+                var MVC = AssemblyUtils.LoadAssembly(plugin.ProjetoUIWebPath);
 
                 applicationBuilder.UseStaticFiles(new StaticFileOptions()
                 {
@@ -81,31 +82,28 @@ namespace UMBIT.Nucleo.Core.Configurate.InfraConfigurate
 
         }
 
-        private static PluginsInfo LoadDomains(this IServiceCollection services, IConfiguration configuration)
+        private static List<Plugin> LoadDomains(this IServiceCollection services, IConfiguration configuration)
         {
 
-            var pluginsPath = new PluginsInfo()
-            {
-                Plugins = configuration.GetSection("Plugins").Get<List<Plugin>>()
-            };
+            var pluginsPath = configuration.GetSection("Plugins").Get<List<Plugin>>();
 
 
-            var PluginsInfo = GerenciadorDePlugin.InformePlugins(pluginsPath);
+			var PluginsInfo = GerenciadorDePlugin.InformePlugins(pluginsPath);
 
 
             AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
             {
 
-                foreach (var pluginInfo in PluginsInfo.Plugins)
+                foreach (var pluginInfo in PluginsInfo.plugins)
                 {
                     if (args.Name.Contains(pluginInfo.ProjetoDominio))
-                        return pluginInfo.LoadAssembly(pluginInfo.ProjetoDominioPath);
+                        return AssemblyUtils.LoadAssembly(pluginInfo.ProjetoDominioPath);
 
                     if (args.Name.Contains(pluginInfo.ProjetoInfraData))
-                        return pluginInfo.LoadAssembly(pluginInfo.ProjetoInfraDataPath);
+                        return AssemblyUtils.LoadAssembly(pluginInfo.ProjetoInfraDataPath);
 
                     if (args.Name.Contains(pluginInfo.ProjetoUIWeb))
-                        return pluginInfo.LoadAssembly(pluginInfo.ProjetoUIWebPath);
+                        return AssemblyUtils.LoadAssembly(pluginInfo.ProjetoUIWebPath);
 
 
                 }
@@ -113,12 +111,10 @@ namespace UMBIT.Nucleo.Core.Configurate.InfraConfigurate
                 throw new Exception("Assembly de dominio não encontrado");
             };
 
+            services.AddSingleton(PluginsInfo.plugins);
+            services.AddSingleton(PluginsInfo.moduloInfos);
 
-
-
-            services.AddSingleton(PluginsInfo);
-
-            return PluginsInfo;
+            return PluginsInfo.plugins;
         }
     }
 

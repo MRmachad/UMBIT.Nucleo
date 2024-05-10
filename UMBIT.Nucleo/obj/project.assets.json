@@ -3075,19 +3075,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\macha\\.nuget\\packages\\": {}
+    "C:\\Users\\LeonardoSilva\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
+      "projectUniqueName": "D:\\Dev\\_ByMySelf\\UMBIT\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
       "projectName": "UMBIT.Nucleo",
-      "projectPath": "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
-      "packagesPath": "C:\\Users\\macha\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev\\_Pessoal\\UMBIT.Nucleo\\UMBIT.Nucleo\\obj\\",
+      "projectPath": "D:\\Dev\\_ByMySelf\\UMBIT\\UMBIT.Nucleo\\UMBIT.Nucleo\\UMBIT.Nucleo.csproj",
+      "packagesPath": "C:\\Users\\LeonardoSilva\\.nuget\\packages\\",
+      "outputPath": "D:\\Dev\\_ByMySelf\\UMBIT\\UMBIT.Nucleo\\UMBIT.Nucleo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\macha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LeonardoSilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3095,7 +3095,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/grupotse/TSE.Infraestrutura/_packaging/TSE/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/umbitbr/2de3038e-b66d-42c6-a8a2-afa1e0e212b8/_packaging/UMBIT/nuget/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -3159,7 +3161,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
